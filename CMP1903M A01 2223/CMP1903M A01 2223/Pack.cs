@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using System.Management.Instrumentation;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -179,11 +178,18 @@ namespace CMP1903M_A01_2223
         }
         public void PrintPack()
         {
-            foreach(Card card in this.pack)
+            int counter = 0;
+            foreach (Card card in this.pack)
             {
-                Console.WriteLine(card.ToString());
+                Console.Write(card.ToString());
+                counter++;
+                if (counter % 5 == 0)
+                {
+                    Console.WriteLine();
+                }
             }
-            Console.WriteLine("There are " + this.pack.Count + " cards in the pack.");
+            Console.WriteLine("There are " + this.pack.Count + " cards in the pack. Press any key to continue.");
+            Console.ReadLine();
         }
     }
 }
